@@ -234,3 +234,24 @@ C) doBaseStuff in Sub can be marked throws Exception without causing errors
 D) doBaseStuff in Sub can be marked throws RuntimeException without causing errors
 E) if doBaseStuff in Base were marked throws Exception,
    then doBaseStuff in Sub can be marked throws IOException without causing errors
+
+Q17)
+  class Q25Base {
+    int x = 99;
+    Q25Base(int x) {
+      this.x = x;
+    }
+  }
+
+  class Q25Sub extends Q25Base {
+    Q25Sub(int x) { System.out.println("in constructor, x is " + x); }
+
+    public static void go() {
+      new Q25Sub(1);
+    }
+  }
+
+Given a call to go(), what is the result?
+    A) in constructor, x is 1
+    B) in constructor, x is 99
+    C) Compilation fails
